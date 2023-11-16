@@ -1,0 +1,58 @@
+:root {
+  --primary: 255, 255, 255;
+  --secondary: 0, 0, 0;
+  --tertiary: 255, 0, 0;
+}
+
+@font-face {
+  font-family: 'FaunaOne';
+  src: url('/assets/fonts/FaunaOne-Regular.ttf');
+}
+
+body, html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--color);
+  font-family: 'FaunaOne';
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
+body.light {
+  --background: rgb(var(--primary));
+  --background-light: rgba(var(--secondary), .1);
+  --color: rgb(var(--secondary));
+  --accent: rgb(var(--tertiary));
+
+  .icon {
+    filter: brightness(0);
+  }
+}
+
+body.dark {
+  --background: rgb(var(--secondary));
+  --background-light: rgba(var(--primary), .1);
+  --color: rgb(var(--primary));
+  --accent: rgb(var(--tertiary));
+
+  .icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.icon {
+  max-height: 30px;
+  max-width: 30px;
+}
+
+a {
+  color: var(--color);
+  text-decoration: none;
+  font-style: italic;
+}
