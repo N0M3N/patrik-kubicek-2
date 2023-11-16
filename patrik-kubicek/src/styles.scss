@@ -25,10 +25,6 @@ body.light {
   --background-light: rgba(var(--secondary), .1);
   --color: rgb(var(--secondary));
   --accent: rgb(var(--tertiary));
-
-  .icon {
-    filter: brightness(0);
-  }
 }
 
 body.dark {
@@ -36,19 +32,10 @@ body.dark {
   --background-light: rgba(var(--primary), .1);
   --color: rgb(var(--primary));
   --accent: rgb(var(--tertiary));
-
-  .icon {
-    filter: brightness(0) invert(1);
-  }
 }
 
 * {
   box-sizing: border-box;
-}
-
-.icon {
-  max-height: 30px;
-  max-width: 30px;
 }
 
 a {
