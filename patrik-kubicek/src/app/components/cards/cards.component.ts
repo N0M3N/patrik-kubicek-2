@@ -1,0 +1,23 @@
+import { Component, ContentChildren, QueryList, computed, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CardComponent } from '../card/card.component';
+
+@Component({
+  selector: 'app-cards',
+  standalone: true,
+  imports: [CommonModule, CardComponent],
+  templateUrl: './cards.component.html',
+  styleUrl: './cards.component.scss'
+})
+export class CardsComponent {
+  @ContentChildren(CardComponent) cards!: QueryList<CardComponent>;
+  private readonly signal = signal<number | null>(null)
+
+  ngAfterContentInit() {
+    this.cards.forEach((card, i) => {
+      card.order = i;
+      card.opened = computed(() => this.signal() === i);
+      card.onOpen.subscribe(() => this.signal.set(this.signal() === i ? null : i));
+    })
+  }
+}

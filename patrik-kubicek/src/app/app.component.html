@@ -1,6 +1,13 @@
 <div id="page-wrapper">
   <div id="header">
     <span id="header-title">Bc. Patrik Kubíček</span>
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/apps" routerLinkActive="active">Apps</a>
+    </nav>
+    <span id="locale-switch">
+      Language
+    </span>
     <span id="theme-switch" (click)="changeTheme()">
       <fa-icon [icon]="currentTheme == 'dark' ? faSun : faMoon" />
     </span>

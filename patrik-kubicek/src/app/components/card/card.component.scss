@@ -1,0 +1,33 @@
+:host {
+  --radius: 16px;
+  cursor: pointer;
+  width: 60px;
+  height: 350px;
+  background-color: var(--background-light);
+  border: 1px solid var(--color);
+  padding: .5rem;
+  transition: width ease-out 1s;
+  overflow: hidden;
+}
+
+:host:first-of-type {
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+
+:host:last-of-type {
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+:host:has(.opened) {
+  width: 400px;
+}
+
+.card-content {
+  display: none;
+}
+
+:host:has(.opened) .card-content {
+  display: block;
+}

@@ -12,13 +12,29 @@
   #header {
     padding: 1rem 2rem;
     display: grid;
-    grid-template-columns: auto max-content;
-    gap: 1rem;
+    grid-template-columns: max-content auto max-content max-content;
+    gap: 3rem;
     align-items: center;
 
     #header-title {
       font-size: large;
       letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+
+      a {
+        font-style: normal;
+        font-weight: bold;
+      }
+
+      a.active {
+        color: var(--accent);
+        text-decoration: underline;
+      }
     }
 
     #theme-switch {

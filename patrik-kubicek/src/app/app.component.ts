@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPhone, faAt, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -8,7 +8,7 @@ import { faWhatsapp, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, RouterOutlet],
+  imports: [CommonModule, FontAwesomeModule, RouterModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
