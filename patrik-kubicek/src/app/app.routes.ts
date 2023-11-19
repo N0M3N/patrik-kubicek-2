@@ -14,7 +14,11 @@ export const routes: Routes = [
   },
   {
     path: 'apps',
-    component: AppsComponent
+    component: AppsComponent,
+  },
+  {
+    path: 'apps/gifts-list',
+    loadChildren: () => import('./modules/gifts-list/gifts-list.routes').then(m => m.routes)
   },
   {
     path: '**',

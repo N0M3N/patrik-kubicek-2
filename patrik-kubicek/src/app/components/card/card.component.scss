@@ -22,31 +22,45 @@
     width: 400px;
 
     .card-title {
-      rotate: 0deg;
-      bottom: calc(100% - 3rem);
+      transform: rotate(0deg) scale(1.2);
+      bottom: calc(100% - 4rem);
       left: 2rem;
+      width: calc(85% - 4rem);
+      font-weight: bold;
     }
 
     .card-content {
       opacity: 1;
       transition: all 1s ease-in-out .5s;
+      pointer-events: all;
     }
+  }
+
+  .card-wrapper {
+    height: 100%;
   }
 
   .card-title {
     cursor: pointer;
     position: absolute;
-    rotate: -90deg;
-    bottom: 2rem;
-    left: 20%;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    bottom: -.5rem;
+    left: 1rem;
     transition: all 1s ease-in-out;
+    height: 30px;
+    width: 300px;
+    display: flex;
+    align-items: center;
   }
 
   .card-content {
     opacity: 0;
     padding: 2rem;
-    padding-top: 5rem;
+    padding-top: 6rem;
     width: 400px;
+    height: 100%;
     overflow: hidden;
+    pointer-events: none;
   }
 }

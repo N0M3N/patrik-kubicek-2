@@ -1,0 +1,16 @@
+.app-title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  a {
+    align-self: end;
+  }
+}
