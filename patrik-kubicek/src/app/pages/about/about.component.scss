@@ -1,0 +1,11 @@
+.about-card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+
+  .time-span {
+    font-size: 80%;
+  }
+}

@@ -1,7 +1,11 @@
 :root {
-  --primary: 255, 255, 255;
-  --secondary: 0, 0, 0;
+  --primary: 225, 225, 225;
+  --secondary: 20, 20, 20;
   --tertiary: 51, 113, 122;
+
+  --success: 3, 252, 107;
+  --warning: 214, 180, 58;
+  --danger: 196, 62, 47;
 }
 
 @font-face {
@@ -9,7 +13,8 @@
   src: url('/assets/fonts/FaunaOne-Regular.ttf');
 }
 
-body, html {
+body,
+html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -18,6 +23,7 @@ body, html {
   font-family: 'FaunaOne';
   font-size: 14px;
   letter-spacing: .5px;
+  transition: background-color .5s ease;
 }
 
 body.light {
@@ -36,10 +42,27 @@ body.dark {
 
 * {
   box-sizing: border-box;
+
+  &::selection {
+    background-color: var(--accent);
+  }
+}
+
+p {
+  line-height: 200%;
+}
+
+h2 {
+  padding-top: 2rem;
 }
 
 a {
-  color: var(--color);
+  color: var(--accent);
   text-decoration: none;
+  border-bottom: 1px solid var(--color);
   font-style: italic;
+}
+
+strong {
+  border-bottom: 1px solid var(--accent);
 }

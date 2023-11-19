@@ -16,8 +16,10 @@ export class CardsComponent {
   ngAfterContentInit() {
     this.cards.forEach((card, i) => {
       card.order = i;
-      card.opened = computed(() => this.signal() === i);
+      card._opened = computed(() => this.signal() === i);
       card.onToggle.subscribe(() => this.signal.set(this.signal() === i ? null : i));
     })
+
+    this.cards.find(x => x.opened)?.onToggle.emit();
   }
 }

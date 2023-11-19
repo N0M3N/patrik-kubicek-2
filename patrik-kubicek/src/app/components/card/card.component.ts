@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Signal, signal } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Signal, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,8 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
+  @Input() opened: boolean = false;
+
   public order: number = 0;
-  opened: Signal<boolean> = signal(false);
+  _opened: Signal<boolean> = signal(false);
   onToggle = new EventEmitter();
   
   _onToggle() {

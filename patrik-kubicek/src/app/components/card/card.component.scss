@@ -4,7 +4,7 @@
   height: 350px;
   background-color: var(--background-light);
   border: 1px solid var(--color);
-  transition: width ease-out 1s;
+  transition: width ease 1s;
   overflow: hidden;
   position: relative;
 
@@ -31,7 +31,7 @@
 
     .card-content {
       opacity: 1;
-      transition: all 1s ease-in-out .5s;
+      transition: opacity 1s ease .5s;
       pointer-events: all;
     }
   }
@@ -47,7 +47,8 @@
     transform-origin: top left;
     bottom: -.5rem;
     left: 1rem;
-    transition: all 1s ease-in-out;
+    transition: 1s ease;
+    transition-property: left, bottom, height, width, transform;
     height: 30px;
     width: 300px;
     display: flex;
@@ -57,7 +58,7 @@
   .card-content {
     opacity: 0;
     padding: 2rem;
-    padding-top: 6rem;
+    padding-top: 5rem;
     width: 400px;
     height: 100%;
     overflow: hidden;
