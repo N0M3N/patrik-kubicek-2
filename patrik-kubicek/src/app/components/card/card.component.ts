@@ -11,10 +11,9 @@ import { CommonModule } from '@angular/common';
 export class CardComponent {
   public order: number = 0;
   opened: Signal<boolean> = signal(false);
-  onOpen = new EventEmitter();
+  onToggle = new EventEmitter();
   
-  @HostListener('click')
-  open() {
-    this.onOpen.emit();
+  _onToggle() {
+    this.onToggle.emit();
   }
 }

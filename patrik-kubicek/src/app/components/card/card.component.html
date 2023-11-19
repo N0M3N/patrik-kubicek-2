@@ -1,8 +1,8 @@
 <div [class.opened]="opened()">
+  <div class="card-title" (click)="_onToggle()">
+    <ng-content select="[title]"></ng-content>
+  </div>
   <div class="card-content">
     <ng-content select="[content]"></ng-content>
-  </div>
-  <div class="card-image">
-    <ng-content select="[icon]"></ng-content>
   </div>
 </div>

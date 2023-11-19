@@ -17,7 +17,7 @@ export class CardsComponent {
     this.cards.forEach((card, i) => {
       card.order = i;
       card.opened = computed(() => this.signal() === i);
-      card.onOpen.subscribe(() => this.signal.set(this.signal() === i ? null : i));
+      card.onToggle.subscribe(() => this.signal.set(this.signal() === i ? null : i));
     })
   }
 }
