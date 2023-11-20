@@ -2,29 +2,13 @@ runtime: nodejs18
 
 handlers: 
   # Serve all static files with url ending with a file extension
-  - url: /(.*\.html)
-    static_files: dist/patrik-kubicek/browser/(.*\.html)
-    upload: dist/patrik-kubicek/browser/(.*\.html)
-    secure: always
-    
-  - url: /(.*\.js)
-    static_files: dist/patrik-kubicek/browser/(.*\.js)
-    upload: dist/patrik-kubicek/browser/(.*\.js)
-    secure: always
-    
-  - url: /(.*\.css)
-    static_files: dist/patrik-kubicek/browser/(.*\.css)
-    upload: dist/patrik-kubicek/browser/(.*\.css)
-    secure: always
-    
-  - url: /(.*\.ico)
-    static_files: dist/patrik-kubicek/browser/(.*\.ico)
-    upload: dist/patrik-kubicek/browser/(.*\.ico)
+  - url: /
+    static_dir: dist/patrik-kubicek/browser/
     secure: always
 
-  - url: /assets
-    static_dir: dist/patrik-kubicek/browser/assets
-    secure: always
+  # - url: /assets
+  #   static_dir: dist/patrik-kubicek/browser/assets
+  #   secure: always
 
   # Catch all handler to index.html
   - url: /.*
