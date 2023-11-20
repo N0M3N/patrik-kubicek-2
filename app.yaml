@@ -1,4 +1,4 @@
-runtime: python27
+runtime: python312
 threadsafe: yes
 api_version: 1
 
@@ -13,46 +13,46 @@ handlers:
 
 # Assets are retrieved directly from their parent folder.
 - url: /assets
-  static_dir: dist/patrik-kubicek-2/assets
+  static_dir: dist/patrik-kubicek/assets
   secure: always
 
 # Static files located in the root folder are retrieved directly from there, but their suffixes need to be
 # mapped individually in order to avoid them from being hit by the most general (catch-all) rule.
 - url: /(.*\.css)
-  static_files: dist/patrik-kubicek-2/\1
-  upload: dist/patrik-kubicek-2/(.*\.css)
+  static_files: dist/patrik-kubicek/\1
+  upload: dist/patrik-kubicek/(.*\.css)
   secure: always
 
 - url: /(.*\.html)
-  static_files: dist/patrik-kubicek-2/\1
-  upload: dist/patrik-kubicek-2/(.*\.html)
+  static_files: dist/patrik-kubicek/\1
+  upload: dist/patrik-kubicek/(.*\.html)
   secure: always
 
 - url: /(.*\.ico)
-  static_files: dist/patrik-kubicek-2/\1
-  upload: dist/patrik-kubicek-2/(.*\.ico)
+  static_files: dist/patrik-kubicek/\1
+  upload: dist/patrik-kubicek/(.*\.ico)
   secure: always
 
 - url: /(.*\.js)
-  static_files: dist/patrik-kubicek-2/\1
-  upload: dist/patrik-kubicek-2/(.*\.js)
+  static_files: dist/patrik-kubicek/\1
+  upload: dist/patrik-kubicek/(.*\.js)
   secure: always
 
 - url: /(.*\.txt)
-  static_files: dist/patrik-kubicek-2/\1
-  upload: dist/patrik-kubicek-2/(.*\.txt)
+  static_files: dist/patrik-kubicek/\1
+  upload: dist/patrik-kubicek/(.*\.txt)
   secure: always
 
 # Site root.
 - url: /
-  static_files: dist/patrik-kubicek-2/index.html
-  upload: dist/patrik-kubicek-2/index.html
+  static_files: dist/patrik-kubicek/index.html
+  upload: dist/patrik-kubicek/index.html
   secure: always
 
 # Catch-all rule, responsible from handling Angular application routes (deeplinks).
 - url: /.*
-  static_files: dist/patrik-kubicek-2/index.html
-  upload: dist/patrik-kubicek-2/index.html
+  static_files: dist/patrik-kubicek/index.html
+  upload: dist/patrik-kubicek/index.html
   secure: always
 
 skip_files:
