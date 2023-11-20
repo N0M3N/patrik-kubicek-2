@@ -2,26 +2,26 @@ runtime: nodejs18
 
 handlers: 
   # Serve all static files with url ending with a file extension
-  - url: /index.html
-    static_files: dist/patrik-kubicek/browser/index.html
-    upload: dist/patrik-kubicek/browser/index.html
+  - url: /(.*\.html)
+    static_files: dist/patrik-kubicek/**/(.*\.html)
+    upload: dist/patrik-kubicek/**/(.*\.html)
     secure: always
-  - url: /chunk-3V7Z3AUF.js
-    static_files: dist/patrik-kubicek/browser/chunk-3V7Z3AUF.js
-    upload: dist/patrik-kubicek/browser/chunk-3V7Z3AUF.js
+    
+  - url: /(.*\.js)
+    static_files: dist/patrik-kubicek/**/(.*\.js)
+    upload: dist/patrik-kubicek/**/(.*\.js)
     secure: always
-  - url: /chunk-CX32WJ55.js
-    static_files: dist/patrik-kubicek/browser/chunk-CX32WJ55.js
-    upload: dist/patrik-kubicek/browser/chunk-CX32WJ55.js
+    
+  - url: /(.*\.css)
+    static_files: dist/patrik-kubicek/**/(.*\.css)
+    upload: dist/patrik-kubicek/**/(.*\.css)
     secure: always
-  - url: /polyfills-LZBJRJJE.js
-    static_files: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
-    upload: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
+    
+  - url: /(.*\.ico)
+    static_files: dist/patrik-kubicek/**/(.*\.ico)
+    upload: dist/patrik-kubicek/**/(.*\.ico)
     secure: always
-  - url: /main-UD3BXWSY.js
-    static_files: dist/patrik-kubicek/browser/main-UD3BXWSY.js
-    upload: dist/patrik-kubicek/browser/main-UD3BXWSY.js
-    secure: always
+
   # Catch all handler to index.html
   - url: /.*
     static_files: dist/patrik-kubicek/browser/index.html
