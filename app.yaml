@@ -6,9 +6,9 @@ handlers:
     static_dir: dist/patrik-kubicek/browser/
     secure: always
 
-  # - url: /assets
-  #   static_dir: dist/patrik-kubicek/browser/assets
-  #   secure: always
+  - url: /assets
+    static_dir: dist/patrik-kubicek/browser/assets
+    secure: always
 
   # Catch all handler to index.html
   - url: /.*
