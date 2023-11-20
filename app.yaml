@@ -21,6 +21,9 @@ handlers:
     static_files: dist/patrik-kubicek/browser/main-UD3BXWSY.js
     upload: dist/patrik-kubicek/browser/main-UD3BXWSY.js
     secure: always
+  - url: /assets
+    static_dir: dist/patrik-kubicek/browser/assets
+    secure: always
   # Catch all handler to index.html
   - url: /.*
     static_files: dist/patrik-kubicek/browser/index.html
