@@ -23,7 +23,7 @@ handlers:
     secure: always
 
   - url: /assets
-    static_url: dist/patrik-kubicek/browser/assets
+    static_dir: dist/patrik-kubicek/browser/assets
     secure: always
 
   # Catch all handler to index.html
