@@ -11,7 +11,6 @@
     </nav>
     <span id="locale-switch" *ngIf="(language$ | async) as language"
       (click)="changeLanguage(language == 'en' ? 'cz' : 'en')">
-      <fa-icon [icon]="faLanguage"></fa-icon>
       <span *ngIf="language == 'en'">CZ</span>
       <span *ngIf="language == 'cz'">EN</span>
     </span>
