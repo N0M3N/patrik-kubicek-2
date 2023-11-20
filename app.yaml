@@ -53,6 +53,3 @@ handlers:
   static_files: dist/patrik-kubicek/index.html
   upload: dist/patrik-kubicek/index.html
   secure: always
-
-skip_files:
-- ^(?!dist)
