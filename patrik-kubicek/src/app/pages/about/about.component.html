@@ -1,18 +1,16 @@
-<h1>About</h1>
-<p>I'm a software developer working mainly on web applications in <strong>Angular</strong>. I've also worked with .NET a
-  lot developing REST APIs in ASP.NET with Entity Framework to access MS SQL Databases and WPF, MAUI and Blazor
-  technologies for UI.</p>
+<h1>{{ 'about' | localize }}</h1>
+<p>{{ 'about_main' | localize }}</p>
 
-<h2>Work Experience</h2>
+<h2>{{ 'about' | localize }}</h2>
 <app-cards>
   <app-card [opened]="true">
     <span title class="about-card-title">
       <span>Vývojáři UO</span>
-      <span class="time-span">since 5/2022</span>
+      <span class="time-span">5/2022 - *</span>
     </span>
     <span content>
-      <p>Backoffice applications for public transport companies.</p>
-      <span>Technologies:</span>
+      <p>{{ 'vyvojari_main' | localize }}</p>
+      <span>{{ 'about_technologies' | localize }}</span>
       <ul>
         <li>.NET C#</li>
         <li>.NET Blazor</li>
@@ -27,8 +25,8 @@
       <span>ABB</span>
       <span class="time-span">8/2017 - 4/2022</span>
     </span> <span content>
-      <p>Applications for naval transport.</p>
-      <span>Technologies:</span>
+      <p>{{ 'abb_main' | localize }}</p>
+      <span>{{ 'about_technologies' | localize }}</span>
       <ul>
         <li>Angular</li>
         <li>Ionic Framework</li>
@@ -45,18 +43,9 @@
       <span class="time-span">6/2017 - 8/2017</span>
     </span>
     <span content>
-      <p>Part time job as remote Windows user support.</p>
+      <p>{{ 'tieto_main' | localize }}</p>
     </span>
   </app-card>
-  <!-- <app-card>
-    <span title class="experience-title">
-      <span>Electrowold</span>
-      <span class="time-span">8/2016 - 6/2017</span>
-    </span>
-    <span content>
-      <p>Part time job as a sales assistant in IT and Mobile phones department</p>
-    </span>
-  </app-card> -->
 </app-cards>
 
 <h2>Education</h2>
@@ -67,50 +56,50 @@
       <span class="time-span">2015-2018</span>
     </span>
     <span content>
-      <p>University studuies at faculty of electronical engineering and information technologies.</p>
-      <p>Finished with bachelors digree.</p>
+      <p>{{ 'vsb_main' | localize }}</p>
+      <p>{{ 'vsb_finish' | localize }}</p>
     </span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
-      <span>Business academy</span>
+      <span>{{ 'oa' | localize }}</span>
       <span class="time-span">2010-2014</span>
     </span>
     <span content>
-      <p>Business, economy, accounting and law focused high school</p>
-      <p>Finished with graduation.</p>
+      <p>{{ 'oa_main' | localize }}</p>
+      <p>{{ 'oa_finish' | localize }}</p>
     </span>
   </app-card>
 </app-cards>
 
-<h2>Languages</h2>
+<h2>{{ 'about_languages' | localize }}</h2>
 <app-cards>
   <app-card [opened]="true">
     <span title class="about-card-title">
-      <span>Czech</span>
+      <span>{{ 'czech' | localize }}</span>
       <span class="time-span">C2</span>
     </span>
-    <span content>Mother tongue.</span>
+    <span content>{{ 'czech_main' | localize }}</span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
-      <span>English</span>
+      <span>{{ 'english' | localize }}</span>
       <span class="time-span">C1</span>
     </span>
-    <span content>Advanced with no certification.</span>
+    <span content>{{ 'english_main' | localize }}</span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
-      <span>German</span>
+      <span>{{ 'german' | localize }}</span>
       <span class="time-span">A1/A2</span>
     </span>
-    <span content>Beginner with no certification.</span>
+    <span content>{{ 'german_main' | localize }}</span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
-      <span>Spanish</span>
+      <span>{{ 'spanish' | localize }}</span>
       <span class="time-span">A1/A2</span>
     </span>
-    <span content>Beginner with no certification.</span>
+    <span content>{{ 'spanish_main' | localize }}</span>
   </app-card>
 </app-cards>

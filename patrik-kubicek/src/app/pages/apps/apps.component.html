@@ -1,23 +1,24 @@
-<h1>About</h1>
-<p>There are some apps I've created and are free to be used by anyone</p>
+<h1>{{ 'myApps' | localize }}</h1>
+<p>{{ 'myApps_main' | localize }}</p>
 
 <app-cards>
   <app-card>
     <span title class="app-title">
       <fa-icon [icon]="faGift" />
-      Gifts List
+      {{ 'gifts-list' | localize }}
     </span>
     <div content class="app-content">
       <div>
-        <p>is an app I've create to help me with shopping for Christmass and Birthday presents.</p>
-        <small>Could be improved:
+        <p>
+          {{ 'gifts-list_description' | localize }}</p>
+        <small>{{ 'myApps_improve' | localize }}
           <ul>
-            <li>Data is stored in browser and is available only on one device</li>
-            <li>The data can be easily decoded</li>
+            <li>{{ 'gifts-list_improve1' | localize }}</li>
+            <li>{{ 'gifts-list_improve2' | localize }}</li>
           </ul>
         </small>
       </div>
-      <a href="/apps/gifts-list">Open</a>
+      <a href="/apps/gifts-list">{{ 'myApps_open' | localize }}</a>
     </div>
   </app-card>
 </app-cards>
