@@ -1,4 +1,4 @@
-runtime: python312
+runtime: nodejs18
 
 # Google App Engine's cache default expiration time is 10 minutes. It's suitable for most Production
 # scenarios, but a shorter TTL may be desired for Development and QA, as it allows us to see a fresh
@@ -18,22 +18,22 @@ handlers:
 # mapped individually in order to avoid them from being hit by the most general (catch-all) rule.
 - url: /(.*\.css)
   static_files: dist/patrik-kubicek/\1
-  upload: dist/patrik-kubicek/(.*\.css)
+  upload: dist/patrik-kubicek/browser/(.*\.css)
   secure: always
 
 - url: /(.*\.html)
   static_files: dist/patrik-kubicek/\1
-  upload: dist/patrik-kubicek/(.*\.html)
+  upload: dist/patrik-kubicek/browser/(.*\.html)
   secure: always
 
 - url: /(.*\.ico)
   static_files: dist/patrik-kubicek/\1
-  upload: dist/patrik-kubicek/(.*\.ico)
+  upload: dist/patrik-kubicek/browser/(.*\.ico)
   secure: always
 
 - url: /(.*\.js)
   static_files: dist/patrik-kubicek/\1
-  upload: dist/patrik-kubicek/(.*\.js)
+  upload: dist/patrik-kubicek/browser/(.*\.js)
   secure: always
 
 - url: /(.*\.txt)
@@ -44,11 +44,11 @@ handlers:
 # Site root.
 - url: /
   static_files: dist/patrik-kubicek/index.html
-  upload: dist/patrik-kubicek/index.html
+  upload: dist/patrik-kubicek/browser/index.html
   secure: always
 
 # Catch-all rule, responsible from handling Angular application routes (deeplinks).
 - url: /.*
   static_files: dist/patrik-kubicek/index.html
-  upload: dist/patrik-kubicek/index.html
+  upload: dist/patrik-kubicek/browser/index.html
   secure: always
