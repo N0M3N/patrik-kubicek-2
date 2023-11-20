@@ -8,7 +8,7 @@ handlers:
     secure: always
     
   - url: /(.*\.js)
-    static_files: dist/patrik-kubicek/**/(.*\.js)
+    static_files: dist/patrik-kubicek/browser/(.*\.js)
     upload: dist/patrik-kubicek/browser/(.*\.js)
     secure: always
     
