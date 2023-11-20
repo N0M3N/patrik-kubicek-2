@@ -17,9 +17,9 @@ handlers:
     static_files: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
     upload: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
     secure: always
-  - url: /main-UD3BXWSY.js
-    static_files: dist/patrik-kubicek/browser/main-UD3BXWSY.js
-    upload: dist/patrik-kubicek/browser/main-UD3BXWSY.js
+  - url: /main-N6XOD5WD.js
+    static_files: dist/patrik-kubicek/browser/main-N6XOD5WD.js
+    upload: dist/patrik-kubicek/browser/main-N6XOD5WD.js
     secure: always
   - url: /assets
     static_dir: dist/patrik-kubicek/browser/assets
