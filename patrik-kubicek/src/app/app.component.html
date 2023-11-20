@@ -1,14 +1,19 @@
 <div id="page-wrapper">
   <div id="header">
     <span id="header-title">Bc. Patrik Kubíček</span>
-    <nav>
-      <a routerLink="/home" routerLinkActive="active">{{ 'home' | localize }}</a>
-      <a routerLink="/about" routerLinkActive="active">{{ 'about' | localize }}</a>
-      <a routerLink="/apps" routerLinkActive="active">{{ 'myApps' | localize }}</a>
+    <nav tabindex="-1">
+      <fa-icon id="nav-trigger" [icon]="faBars"></fa-icon>
+      <div id="nav-items">
+        <a routerLink="/home" routerLinkActive="active">{{ 'home' | localize }}</a>
+        <a routerLink="/about" routerLinkActive="active">{{ 'about' | localize }}</a>
+        <a routerLink="/apps" routerLinkActive="active">{{ 'myApps' | localize }}</a>
+      </div>
     </nav>
-    <span id="locale-switch">
-      <span *ngIf="(language$ | async) == 'en'" (click)="changeLanguage('cz')">CZ</span>
-      <span *ngIf="(language$ | async) == 'cz'" (click)="changeLanguage('en')">EN</span>
+    <span id="locale-switch" *ngIf="(language$ | async) as language"
+      (click)="changeLanguage(language == 'en' ? 'cz' : 'en')">
+      <fa-icon [icon]="faLanguage"></fa-icon>
+      <span *ngIf="language == 'en'">CZ</span>
+      <span *ngIf="language == 'cz'">EN</span>
     </span>
     <span id="theme-switch" (click)="changeTheme()">
       <fa-icon [icon]="currentTheme == 'dark' ? faSun : faMoon" />
@@ -36,6 +41,10 @@
       <a class="contact" href="https://www.linkedin.com/in/patrik-kub%C3%AD%C4%8Dek-348626137/" target="_blank">
         <fa-icon [icon]="faLinkedin" />
         <span>Patrik Kubíček</span>
+      </a>
+      <a class="contact" href="https://github.com/N0M3N" target="_blank">
+        <fa-icon [icon]="faGithub" />
+        <span>N0M3N</span>
       </a>
     </div>
   </div>
