@@ -14,6 +14,14 @@ handlers:
     static_files: dist/patrik-kubicek/browser/chunk-CX32WJ55.js
     upload: dist/patrik-kubicek/browser/chunk-CX32WJ55.js
     secure: always
+  - url: /polyfills-LZBJRJJE.js
+    static_files: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
+    upload: dist/patrik-kubicek/browser/polyfills-LZBJRJJE.js
+    secure: always
+  - url: /main-UD3BXWSY.js
+    static_files: dist/patrik-kubicek/browser/main-UD3BXWSY.js
+    upload: dist/patrik-kubicek/browser/main-UD3BXWSY.js
+    secure: always
   # Catch all handler to index.html
   - url: /.*
     static_files: dist/patrik-kubicek/browser/index.html
