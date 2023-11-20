@@ -2,7 +2,7 @@ runtime: nodejs18
 
 handlers: 
   # Serve all static files with url ending with a file extension
- - url: /
+  - url: /
     static_dir: dist/patrik-kubicek/browser/
     secure: always
 
