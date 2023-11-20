@@ -2,7 +2,7 @@
 <p>{{ 'myApps_main' | localize }}</p>
 
 <app-cards>
-  <app-card>
+  <app-card [opened]="true">
     <span title class="app-title">
       <fa-icon [icon]="faGift" />
       {{ 'gifts-list' | localize }}
