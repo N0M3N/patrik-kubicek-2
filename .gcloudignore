@@ -19,6 +19,6 @@ src/
 .angular/
 .vscode/
 .editorconfig
-*.json
-*.yaml
-*.md
+/*.json
+/*.yaml
+/*.md
