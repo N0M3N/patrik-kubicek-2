@@ -1,31 +1,11 @@
 runtime: nodejs18
 handlers: 
   # Serve all static files with url ending with a file extension
-  - url: /index.html
-    static_files: dist/patrik-kubicek/index.html
-    upload: dist/patrik-kubicek/index.html
-    secure: always
-  - url: /chunk-3V7Z3AUF.js
-    static_files: dist/patrik-kubicek/chunk-3V7Z3AUF.js
-    upload: dist/patrik-kubicek/chunk-3V7Z3AUF.js
-    secure: always
-  - url: /chunk-CX32WJ55.js
-    static_files: dist/patrik-kubicek/chunk-CX32WJ55.js
-    upload: dist/patrik-kubicek/chunk-CX32WJ55.js
-    secure: always
-  - url: /polyfills-LZBJRJJE.js
-    static_files: dist/patrik-kubicek/polyfills-LZBJRJJE.js
-    upload: dist/patrik-kubicek/polyfills-LZBJRJJE.js
-    secure: always
-  - url: /main-N6XOD5WD.js
-    static_files: dist/patrik-kubicek/main-N6XOD5WD.js
-    upload: dist/patrik-kubicek/main-N6XOD5WD.js
-    secure: always
-  - url: /assets
-    static_dir: dist/patrik-kubicek/assets
+  - url: /
+    static_dir: dist/patrik-kubicek/browser
     secure: always
   # Catch all handler to index.html
   - url: /.*
-    static_files: dist/patrik-kubicek/index.html
-    upload: dist/patrik-kubicek/index.html
+    static_files: dist/patrik-kubicek/browser/index.html
+    upload: dist/patrik-kubicek/browser/index.html
     secure: always
