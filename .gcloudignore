@@ -18,6 +18,7 @@ node_modules/
 src/
 .angular/
 .vscode/
+.editorconfig
 *.json
 *.yaml
 *.md

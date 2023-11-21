@@ -7,3 +7,5 @@ handlers:
     secure: always
   - url: /
     static_dir: dist/patrik-kubicek/browser
+  - url: /assets
+    static_dir: dist/patrik-kubicek/browser/assets
