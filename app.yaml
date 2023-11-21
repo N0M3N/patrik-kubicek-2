@@ -7,14 +7,3 @@ handlers:
     secure: always
   - url: /
     static_dir: dist/patrik-kubicek/browser
-skip_files:
-  - e2e/
-  - src/
-  - .vscode/
-  - .angular/
-  - node_modules/
-  - coverage
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
