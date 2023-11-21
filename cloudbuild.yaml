@@ -5,7 +5,7 @@ steps:
 
   - name: 'node'
     entrypoint: 'npm'
-    args: [ run, build, --aot, --prod ]
+    args: [ run, build, --aot ]
  
   - name: gcr.io/cloud-builders/gcloud
     args: [ app, deploy ]
