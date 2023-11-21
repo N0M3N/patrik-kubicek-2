@@ -5,7 +5,7 @@ handlers:
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
     secure: always
-  - url:
+  - url: /
     static_dir: dist/patrik-kubicek/browser
 skip_files:
   - e2e/
