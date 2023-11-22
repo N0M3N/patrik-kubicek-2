@@ -1,6 +1,5 @@
 :host {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  justify-content: center;
+  grid-auto-flow: row;
+  width: 100%;
 }
