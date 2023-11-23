@@ -1,1 +1,6 @@
-<p>login works!</p>
+<div class="center-content">
+  <form>
+    <app-input [(value)]="password" type="password" label="Password" />
+    <button [disabled]="!password" (click)="onAuthorize()">Authorize</button>
+  </form>
+</div>

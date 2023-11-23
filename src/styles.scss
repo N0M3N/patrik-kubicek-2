@@ -15,7 +15,7 @@
 
 body,
 html {
-  min-height: 100vh;
+  min-height: 100svh;
   margin: 0;
   padding: 0;
   background-color: var(--background);
@@ -65,4 +65,33 @@ a {
 
 strong {
   border-bottom: 1px solid var(--accent);
+}
+
+form {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-columns: max-content;
+  gap: 1rem;
+  min-width: 100px;
+}
+
+button, input[type="submit"] {
+  padding: 1rem 2rem;
+  background-color: var(--accent);
+  color: var(--color);
+  border: none;
+  letter-spacing: 2px;
+  transition: all .25s ease;
+  cursor: pointer;
+  pointer-events: all;
+
+  &:not([disabled]):hover {
+    background-color: var(--color);
+    color: var(--accent);
+  }
+
+  &[disabled] {
+    background-color: var(--background-light);
+    pointer-events: none;
+  }
 }

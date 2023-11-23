@@ -1,0 +1,37 @@
+
+.form-control {
+  position: relative;
+  padding-top: 20px;
+
+  label {
+    position: absolute;
+    top: 26px;
+    left: 8px;
+    z-index: 10;
+    transition: .5s ease;
+    transition-property: top, color;
+  }
+
+  input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: var(--color);
+    border-bottom: 2px solid var(--color);
+    padding: 8px;
+    transition: border .5s ease;
+  }
+
+  &:focus-within,
+  &.has-value {
+    label {
+      top: 4px;
+      color: var(--accent);
+      font-size: 70%;
+    }
+
+    input {
+      border-bottom: 2px solid var(--accent);
+    }
+  }
+}
