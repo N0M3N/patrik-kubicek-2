@@ -154,6 +154,7 @@
 
     nav:focus-within {
       position: relative;
+      z-index: 50;
 
       #nav-items {
         background-color: var(--background);

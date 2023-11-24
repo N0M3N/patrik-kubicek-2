@@ -12,6 +12,18 @@
   gap: 1rem;
 }
 
+.group-title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 130%;
+  margin-top: 2rem;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
 .giftee-card {
   padding: 1rem;
   display: flex;

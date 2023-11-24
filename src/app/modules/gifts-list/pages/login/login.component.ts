@@ -5,11 +5,13 @@ import { InputComponent } from '../../../../components/input/input.component';
 import { LoginService } from '../../services/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogComponent } from '../../../../components/dialog/dialog.component';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputComponent, DialogComponent],
+  imports: [CommonModule, FormsModule, InputComponent, DialogComponent, FaIconComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -18,6 +20,8 @@ export class LoginComponent {
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
 
+  faChevronLeft = faChevronLeft;
+
   password: string = '';
   registerDialogVisible = signal(false);
 
@@ -25,6 +29,10 @@ export class LoginComponent {
     const id = sessionStorage.getItem('gifts-login-id');
     if (id)
       this.onLogin(Number.parseInt(id));
+  }
+
+  onBack() {
+    this.router.navigate(['../..'], { relativeTo: this.activatedRoute });
   }
 
   async onAuthorize() {

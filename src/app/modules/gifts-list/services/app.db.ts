@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import Dexie, { Table } from "dexie";
 import { NON_INDEXED_FIELDS, applyEncryptionMiddleware, clearAllTables } from "dexie-encrypted";
-import { CryptoSettings } from "dexie-encrypted/dist/types";
 
 export type Login = {
   id: number;
@@ -12,12 +11,13 @@ export type Giftee = {
   id: number;
   name: string;
   loginId: number;
-  isChecked: boolean;
+  isComplete: boolean;
 }
 
 export type Gift = {
   id: number;
   name: string;
+  state: 'idea' | 'readyToGive' | 'history';
   gifteeId: number;
 }
 
@@ -44,7 +44,7 @@ export class AppDb extends Dexie {
         await clearAllTables(this);
       });
 
-    this.version(2).stores({
+    this.version(4).stores({
       logins: "++id",
       giftees: "++id",
       gifts: "++id"

@@ -119,3 +119,11 @@ input[type="submit"] {
     pointer-events: none;
   }
 }
+
+.empty-note {
+  color: var(--color);
+  opacity: .5;
+  text-align: center;
+  font-size: 80%;
+  font-style: italic;
+}

@@ -2,8 +2,122 @@
   <button class="icon-button" (click)="onBack()" title="Back">
     <fa-icon [icon]="faChevronLeft" />
   </button>
-  <h1>Giftees</h1>
+  <h1>{{ giftee()?.name }}</h1>
   <button class="icon-button" (click)="addDialogVisible.set(true)" title="Add">
     <fa-icon [icon]="faPlus" />
   </button>
 </div>
+
+<div class="group-title">
+  <fa-icon [icon]="faLightbulb" />
+  <span>Ideas</span>
+</div>
+@for(gift of ideas(); track gift.id){
+<div class="gift-card">
+  <div class="gift-head">
+    <span>{{ gift.name }}</span>
+  </div>
+  <div class="gift-actions">
+    <div class="gift-actions-group">
+      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
+        <fa-icon [icon]="faTrash" />
+      </button>
+      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
+        <fa-icon [icon]="faPencil" />
+      </button>
+    </div>
+    <div>
+      <button class="icon-button small" (click)="onCheck(gift, 'readyToGive')" title="Mark as ready to give">
+        <fa-icon [icon]="faCheck" />
+      </button>
+    </div>
+  </div>
+</div>
+}
+@empty {
+<p class="empty-note">No gift ideas found.</p>
+}
+
+<div class="group-title">
+  <fa-icon [icon]="faCheck" />
+  <span>Ready to give</span>
+</div>
+@for(gift of ready(); track gift.id){
+<div class="gift-card">
+  <div class="gift-head">
+    <span>{{ gift.name }}</span>
+  </div>
+  <div class="gift-actions">
+    <div class="gift-actions-group">
+      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
+        <fa-icon [icon]="faTrash" />
+      </button>
+      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
+        <fa-icon [icon]="faPencil" />
+      </button>
+    </div>
+    <div class="gift-actions-group">
+      <button class="icon-button small" (click)="onCheck(gift, 'idea')" title="Mark as idea">
+        <fa-icon [icon]="faLightbulb" />
+      </button>
+      <button class="icon-button small" (click)="onCheck(gift, 'history')" title="Mark as historical gift">
+        <fa-icon [icon]="faClockRotateLeft" />
+      </button>
+    </div>
+  </div>
+</div>
+}
+@empty {
+<p class="empty-note">No ready to give gifts found.</p>
+}
+
+
+<div class="group-title">
+  <fa-icon [icon]="faClockRotateLeft" />
+  <span>History</span>
+</div>
+@for(gift of history(); track gift.id){
+<div class="gift-card">
+  <div class="gift-head">
+    <span>{{ gift.name }}</span>
+  </div>
+  <div class="gift-actions">
+    <div class="gift-actions-group">
+      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
+        <fa-icon [icon]="faTrash" />
+      </button>
+      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
+        <fa-icon [icon]="faPencil" />
+      </button>
+    </div>
+    <div class="gift-actions-group">
+      <button class="icon-button small" (click)="onCheck(gift, 'readyToGive')" title="Mark as ready to give">
+        <fa-icon [icon]="faCheck" />
+      </button>
+    </div>
+  </div>
+</div>
+}
+@empty {
+<p class="empty-note">No gift history found.</p>
+}
+
+<app-dialog [visible]="addDialogVisible" (onEnter)="onAdd()">
+  <form>
+    <app-input label="Name" type="text" [(value)]="addName" />
+    <div class="dialog-buttons">
+      <button (click)="addDialogVisible.set(false)" type='button'>Cancel</button>
+      <button (click)="onAdd()" [disabled]="!addName" type='button'>Add</button>
+    </div>
+  </form>
+</app-dialog>
+
+<app-dialog [visible]="editDialogVisible" (onEnter)="onEditComplete()">
+  <form>
+    <app-input label="Name" type="text" [(value)]="editName" />
+    <div class="dialog-buttons">
+      <button (click)="editDialogVisible.set(false)" type='button'>Cancel</button>
+      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>Save</button>
+    </div>
+  </form>
+</app-dialog>

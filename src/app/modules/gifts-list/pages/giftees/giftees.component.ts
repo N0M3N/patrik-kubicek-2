@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Giftee } from '../../services/app.db';
 import { GifteesService } from '../../services/giftees.service';
-import { faCheck, faChevronRight, faLock, faPencil, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faChevronRight, faLightbulb, faLock, faPencil, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { DialogComponent } from '../../../../components/dialog/dialog.component';
 import { InputComponent } from '../../../../components/input/input.component';
@@ -25,8 +25,8 @@ export class GifteesComponent {
 
   id = signal<number | null>(null);
   giftees = signal<Giftee[]>([]);
-  unCheckedGiftees = computed(() => this.giftees().filter(x => !x.isChecked));
-  checkedGiftees = computed(() => this.giftees().filter(x => x.isChecked));
+  incompleteGiftees = computed(() => this.giftees().filter(x => !x.isComplete));
+  completeGiftees = computed(() => this.giftees().filter(x => x.isComplete));
   addDialogVisible = signal(false);
   editDialogVisible = signal(false);
 
@@ -34,6 +34,7 @@ export class GifteesComponent {
   faPlus = faPlus;
   faTrash = faTrash;
   faPencil = faPencil;
+  faLightbulb = faLightbulb;
   faCheck = faCheck;
   faChevronRight = faChevronRight;
 
@@ -92,8 +93,8 @@ export class GifteesComponent {
     this.update();
   }
 
-  async onCheck(giftee: Giftee, isChecked: boolean) {
-    this.gifteesService.update(<Giftee>{ ...giftee, isChecked })
+  async onCheck(giftee: Giftee, isComplete: boolean) {
+    this.gifteesService.update(<Giftee>{ ...giftee, isComplete })
     this.update();
   }
 
@@ -102,7 +103,6 @@ export class GifteesComponent {
   }
 
   private async update() {
-    this.giftees.set(await this.gifteesService.get(this.id()!));
+    this.giftees.set(await this.gifteesService.getByLogin(this.id()!));
   }
-
 }

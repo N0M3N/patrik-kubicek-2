@@ -9,8 +9,12 @@
   </button>
   }
 </div>
-<p>Incomplete</p>
-@for(giftee of unCheckedGiftees(); track giftee.id){
+
+<div class="group-title">
+  <fa-icon [icon]="faLightbulb" />
+  <span>Incomplete</span>
+</div>
+@for(giftee of incompleteGiftees(); track giftee.id){
 <div class="giftee-card">
   <div class="giftee-head" (click)="openGifts(giftee)">
     <span>{{ giftee.name }}</span>
@@ -33,8 +37,15 @@
   </div>
 </div>
 }
-<p>Complete</p>
-@for(giftee of checkedGiftees(); track giftee.id){
+@empty {
+<p class="empty-note">No incomplete giftees found.</p>
+}
+
+<div class="group-title">
+  <fa-icon [icon]="faCheck" />
+  <span>Complete</span>
+</div>
+@for(giftee of completeGiftees(); track giftee.id){
 <div class="giftee-card">
   <div class="giftee-head" (click)="openGifts(giftee)">
     <span>{{ giftee.name }}</span>
@@ -56,6 +67,9 @@
     </div>
   </div>
 </div>
+}
+@empty {
+<p class="empty-note">No complete giftees found.</p>
 }
 
 <app-dialog [visible]="addDialogVisible" (onEnter)="onAdd()">
