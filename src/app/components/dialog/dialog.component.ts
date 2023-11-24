@@ -1,4 +1,4 @@
-import { Component, Input, Signal } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,4 +11,15 @@ import { CommonModule } from '@angular/common';
 export class DialogComponent {
   @Input()
   visible!: Signal<boolean>;
+
+  @Output()
+  onEnter = new EventEmitter();
+
+  @HostListener('keydown', ['$event'])
+  preventEnterSubmit($event: any) {
+    if ($event.keyCode === 13) {
+      this.onEnter.emit();
+      $event.preventDefault();
+    }
+  }
 }

@@ -57,7 +57,8 @@
   </div>
 </div>
 }
-<app-dialog [visible]="addDialogVisible">
+
+<app-dialog [visible]="addDialogVisible" (onEnter)="onAdd()">
   <form>
     <app-input label="Name" type="text" [(value)]="addName" />
     <div class="dialog-buttons">
@@ -68,7 +69,7 @@
 </app-dialog>
 
 
-<app-dialog [visible]="editDialogVisible">
+<app-dialog [visible]="editDialogVisible" (onEnter)="onEditComplete()">
   <form>
     <app-input label="Name" type="text" [(value)]="editName" />
     <div class="dialog-buttons">
