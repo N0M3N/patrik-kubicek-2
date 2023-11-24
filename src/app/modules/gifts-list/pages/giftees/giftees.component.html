@@ -1,0 +1,79 @@
+<div class="header">
+  <button class="icon-button danger" (click)="onLogOut()" title="Log out">
+    <fa-icon [icon]="faLock" />
+  </button>
+  <h1>Giftees</h1>
+  @if(id() !== null){
+  <button class="icon-button" (click)="addDialogVisible.set(true)" title="Add">
+    <fa-icon [icon]="faPlus" />
+  </button>
+  }
+</div>
+<p>Incomplete</p>
+@for(giftee of unCheckedGiftees(); track giftee.id){
+<div class="giftee-card">
+  <div class="giftee-head" (click)="openGifts(giftee)">
+    <span>{{ giftee.name }}</span>
+    <fa-icon [icon]="faChevronRight" />
+  </div>
+  <div class="giftee-actions">
+    <div class="giftee-actions-group">
+      <button class="icon-button small danger" (click)="onDelete(giftee)" title="Delete">
+        <fa-icon [icon]="faTrash" />
+      </button>
+      <button class="icon-button small" (click)="onEdit(giftee)" title="Edit">
+        <fa-icon [icon]="faPencil" />
+      </button>
+    </div>
+    <div>
+      <button class="icon-button small" (click)="onCheck(giftee, true)" title="Mark as complete">
+        <fa-icon [icon]="faCheck" />
+      </button>
+    </div>
+  </div>
+</div>
+}
+<p>Complete</p>
+@for(giftee of checkedGiftees(); track giftee.id){
+<div class="giftee-card">
+  <div class="giftee-head" (click)="openGifts(giftee)">
+    <span>{{ giftee.name }}</span>
+    <fa-icon [icon]="faChevronRight" />
+  </div>
+  <div class="giftee-actions">
+    <div class="giftee-actions-group">
+      <button class="icon-button small danger" (click)="onDelete(giftee)" title="Delete">
+        <fa-icon [icon]="faTrash" />
+      </button>
+      <button class="icon-button small" (click)="onEdit(giftee)" title="Edit">
+        <fa-icon [icon]="faPencil" />
+      </button>
+    </div>
+    <div>
+      <button class="icon-button small" (click)="onCheck(giftee, false)" title="Mark as incomplete">
+        <fa-icon [icon]="faCheck" />
+      </button>
+    </div>
+  </div>
+</div>
+}
+<app-dialog [visible]="addDialogVisible">
+  <form>
+    <app-input label="Name" type="text" [(value)]="addName" />
+    <div class="dialog-buttons">
+      <button (click)="addDialogVisible.set(false)" type='button'>Cancel</button>
+      <button (click)="onAdd()" [disabled]="!addName" type='button'>Add</button>
+    </div>
+  </form>
+</app-dialog>
+
+
+<app-dialog [visible]="editDialogVisible">
+  <form>
+    <app-input label="Name" type="text" [(value)]="editName" />
+    <div class="dialog-buttons">
+      <button (click)="editDialogVisible.set(false)" type='button'>Cancel</button>
+      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>Save</button>
+    </div>
+  </form>
+</app-dialog>

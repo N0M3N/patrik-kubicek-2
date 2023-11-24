@@ -4,3 +4,13 @@
     <button [disabled]="!password" (click)="onAuthorize()">Authorize</button>
   </form>
 </div>
+
+<app-dialog [visible]="registerDialogVisible">
+  <form>
+    <p>The password isn't assigned to a gift list. Do you wish to create a new one with this password?</p>
+    <div class="dialog-actions">
+      <button (click)="registerDialogVisible.set(false)">No</button>
+      <button (click)="onRegister()">Yes</button>
+    </div>
+  </form>
+</app-dialog>

@@ -1,0 +1,6 @@
+.header {
+  display: grid;
+  grid-template-columns: max-content auto max-content;
+  gap: 1rem;
+  align-items: center;
+}
