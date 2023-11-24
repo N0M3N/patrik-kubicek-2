@@ -9,8 +9,6 @@
   right: 0;
   background-color: var(--background);
   opacity: 0.5;
-  pointer-events: none;
-  touch-action: none;
 }
 
 #dialog {
@@ -25,8 +23,6 @@
   border-radius: 4px;
   z-index: 100;
   max-width: 90vw;
-  overflow: hidden;
-  word-wrap: normal;
 }
 
 .visible {
