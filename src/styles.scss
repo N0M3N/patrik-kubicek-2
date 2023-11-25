@@ -3,8 +3,9 @@
   --secondary: 20, 20, 20;
   --tertiary: 51, 113, 122;
 
-  --success: 3, 252, 107;
-  --warning: 214, 180, 58;
+  --white: rgb(255, 255, 255);
+  --success: rgb(3, 252, 107);
+  --warning: rgb(214, 180, 58);
   --danger: rgb(196, 62, 47);
 }
 
@@ -78,7 +79,7 @@ button,
 input[type="submit"] {
   padding: 1rem 2rem;
   background-color: var(--accent);
-  color: var(--color);
+  color: var(--white);
   border: none;
   letter-spacing: 2px;
   transition: all .25s ease;
@@ -87,6 +88,11 @@ input[type="submit"] {
 
   &.danger {
     background-color: var(--danger);
+  }
+
+  &.secondary {
+    background-color: var(--background-light);
+    border: 1px solid var(--accent);
   }
 
   &.icon-button {
@@ -105,7 +111,7 @@ input[type="submit"] {
   }
 
   &:not([disabled]):hover {
-    background-color: var(--color);
+    background-color: var(--white);
     color: var(--accent);
 
     &.danger {

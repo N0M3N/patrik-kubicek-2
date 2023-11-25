@@ -23,6 +23,12 @@
     width: 100%;
   }
 
+  fa-icon {
+    position: absolute;
+    top: 26px;
+    right: 8px;
+  }
+
   &:focus-within,
   &.has-value {
     label {

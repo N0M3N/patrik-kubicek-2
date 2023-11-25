@@ -1,0 +1,24 @@
+details {
+  summary {
+    display: grid;
+    grid-template-columns: auto max-content;
+    cursor: pointer;
+
+    &::marker {
+      content: none;
+    }
+    
+    fa-icon {
+      padding-inline: 1rem;
+      transition: all .5s ease;
+    }
+  }
+
+  &[open] {
+    summary {
+      fa-icon {
+        rotate: -90deg;
+      }
+    }
+  }
+}

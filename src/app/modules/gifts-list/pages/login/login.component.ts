@@ -7,13 +7,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DialogComponent } from '../../../../components/dialog/dialog.component';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { LocalizePipe } from "../../../../pipes/localize.pipe";
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, FormsModule, InputComponent, DialogComponent, FaIconComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'app-login',
+    standalone: true,
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss',
+    imports: [CommonModule, FormsModule, InputComponent, DialogComponent, FaIconComponent, LocalizePipe]
 })
 export class LoginComponent {
   private readonly loginService = inject(LoginService);

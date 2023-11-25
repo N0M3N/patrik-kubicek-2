@@ -3,17 +3,17 @@
 </button>
 <div class="center-content">
   <form>
-    <app-input [(value)]="password" type="password" label="Password" />
-    <button [disabled]="!password" (click)="onAuthorize()">Authorize</button>
+    <app-input [(value)]="password" type="password" [label]="'password' | localize" />
+    <button [disabled]="!password" (click)="onAuthorize()">{{ 'authorize' | localize }}</button>
   </form>
 </div>
 
 <app-dialog [visible]="registerDialogVisible">
   <form>
-    <p>The password isn't assigned to a gift list. Do you wish to create a new one with this password?</p>
+    <p>{{ 'registerQuestion' | localize }}</p>
     <div class="dialog-actions">
-      <button (click)="registerDialogVisible.set(false)">No</button>
-      <button (click)="onRegister()">Yes</button>
+      <button (click)="registerDialogVisible.set(false)">{{ 'no' | localize }}</button>
+      <button (click)="onRegister()">{{ 'yes' | localize }}</button>
     </div>
   </form>
 </app-dialog>

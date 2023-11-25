@@ -1,0 +1,7 @@
+<details [attr.open]="open ? '': null">
+  <summary>
+    <ng-content select="[title]"></ng-content>
+    <fa-icon [icon]="faChevronLeft" />
+  </summary>
+  <ng-content></ng-content>
+</details>

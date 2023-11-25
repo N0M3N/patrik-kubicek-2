@@ -1,123 +1,104 @@
 <div class="header">
-  <button class="icon-button" (click)="onBack()" title="Back">
+  <button class="icon-button secondary" (click)="onBack()" [title]="'back' | localize">
     <fa-icon [icon]="faChevronLeft" />
   </button>
   <h1>{{ giftee()?.name }}</h1>
-  <button class="icon-button" (click)="addDialogVisible.set(true)" title="Add">
+  <button class="icon-button" (click)="addDialogVisible.set(true)" [title]="'add' | localize">
     <fa-icon [icon]="faPlus" />
   </button>
 </div>
 
-<div class="group-title">
-  <fa-icon [icon]="faLightbulb" />
-  <span>Ideas</span>
-</div>
-@for(gift of ideas(); track gift.id){
-<div class="gift-card">
-  <div class="gift-head">
-    <span>{{ gift.name }}</span>
-  </div>
-  <div class="gift-actions">
-    <div class="gift-actions-group">
-      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
-        <fa-icon [icon]="faTrash" />
-      </button>
-      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
-        <fa-icon [icon]="faPencil" />
-      </button>
-    </div>
-    <div>
-      <button class="icon-button small" (click)="onCheck(gift, 'readyToGive')" title="Mark as ready to give">
-        <fa-icon [icon]="faCheck" />
-      </button>
-    </div>
-  </div>
-</div>
-}
-@empty {
-<p class="empty-note">No gift ideas found.</p>
-}
+<app-input [label]="'search' | localize" [value]="searchPattern()" (valueChange)="searchPattern.set($event);"
+  [icon]="faSearch"></app-input>
 
-<div class="group-title">
-  <fa-icon [icon]="faCheck" />
-  <span>Ready to give</span>
-</div>
-@for(gift of ready(); track gift.id){
-<div class="gift-card">
-  <div class="gift-head">
-    <span>{{ gift.name }}</span>
+<app-expander>
+  <div title class="group-title">
+    <fa-icon [icon]="faLightbulb" />
+    <span>{{ 'ideas' | localize }}</span>
   </div>
-  <div class="gift-actions">
-    <div class="gift-actions-group">
-      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
-        <fa-icon [icon]="faTrash" />
-      </button>
-      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
-        <fa-icon [icon]="faPencil" />
-      </button>
-    </div>
-    <div class="gift-actions-group">
-      <button class="icon-button small" (click)="onCheck(gift, 'idea')" title="Mark as idea">
-        <fa-icon [icon]="faLightbulb" />
-      </button>
-      <button class="icon-button small" (click)="onCheck(gift, 'history')" title="Mark as historical gift">
-        <fa-icon [icon]="faClockRotateLeft" />
-      </button>
-    </div>
-  </div>
-</div>
-}
-@empty {
-<p class="empty-note">No ready to give gifts found.</p>
-}
+  @for(gift of ideas(); track gift.id){
+  <ng-container *ngTemplateOutlet="giftTemplate; context: {$implicit: gift}" />
+  }
+  @empty {
+  <p class="empty-note">{{ 'noIdeasFound' | localize }}</p>
+  }
+</app-expander>
 
+<app-expander>
+  <div title class="group-title">
+    <fa-icon [icon]="faCheck" />
+    <span>{{ 'readyToGive' | localize }}</span>
+  </div>
+  @for(gift of ready(); track gift.id){
+  <ng-container *ngTemplateOutlet="giftTemplate; context: {$implicit: gift}" />
+  }
+  @empty {
+  <span>{{ 'noReadyToGive' | localize }}</span>
+  }
+</app-expander>
 
-<div class="group-title">
-  <fa-icon [icon]="faClockRotateLeft" />
-  <span>History</span>
-</div>
-@for(gift of history(); track gift.id){
-<div class="gift-card">
-  <div class="gift-head">
-    <span>{{ gift.name }}</span>
+<app-expander [open]="false">
+  <div title class="group-title">
+    <fa-icon [icon]="faClockRotateLeft" />
+    <span>{{ 'history' | localize }}</span>
   </div>
-  <div class="gift-actions">
-    <div class="gift-actions-group">
-      <button class="icon-button small danger" (click)="onDelete(gift)" title="Delete">
-        <fa-icon [icon]="faTrash" />
-      </button>
-      <button class="icon-button small" (click)="onEdit(gift)" title="Edit">
-        <fa-icon [icon]="faPencil" />
-      </button>
+  @for(gift of history(); track gift.id){
+  <ng-container *ngTemplateOutlet="giftTemplate; context: {$implicit: gift}" />
+  }
+  @empty {
+  <span>{{ 'noHistoryFound' | localize }}</span>
+  }
+</app-expander>
+
+<ng-template #giftTemplate let-gift>
+  <div class="gift-card">
+    <div class="gift-head">
+      <span>{{ gift.name }}</span>
     </div>
-    <div class="gift-actions-group">
-      <button class="icon-button small" (click)="onCheck(gift, 'readyToGive')" title="Mark as ready to give">
-        <fa-icon [icon]="faCheck" />
-      </button>
+    <div class="gift-actions">
+      <div class="gift-actions-group">
+        <button class="icon-button small danger" (click)="onDelete(gift)" [title]="'delete' | localize">
+          <fa-icon [icon]="faTrash" />
+        </button>
+        <button class="icon-button small secondary" (click)="onEdit(gift)" [title]="'edit' | localize">
+          <fa-icon [icon]="faPencil" />
+        </button>
+      </div>
+      <div class="gift-actions-group">
+        <button *ngIf="gift.state === 'readyToGive'" class="icon-button small secondary" (click)="onCheck(gift, 'idea')"
+          [title]="'markAsIdea' | localize">
+          <fa-icon [icon]="faLightbulb" />
+        </button>
+        <button *ngIf="gift.state !== 'readyToGive'" class="icon-button small"
+          [ngClass]="gift.state == 'history' ? 'secondary': ''" (click)="onCheck(gift, 'readyToGive')"
+          [title]="'markAsReadyToGive' | localize">
+          <fa-icon [icon]="faCheck" />
+        </button>
+        <button *ngIf="gift.state === 'readyToGive'" class="icon-button small" (click)="onCheck(gift, 'history')"
+          [title]="'markAsHistory' | localize">
+          <fa-icon [icon]="faClockRotateLeft" />
+        </button>
+      </div>
     </div>
   </div>
-</div>
-}
-@empty {
-<p class="empty-note">No gift history found.</p>
-}
+</ng-template>
 
 <app-dialog [visible]="addDialogVisible" (onEnter)="onAdd()">
   <form>
-    <app-input label="Name" type="text" [(value)]="addName" />
+    <app-input [label]="'name' | localize" type="text" [(value)]="addName" />
     <div class="dialog-buttons">
-      <button (click)="addDialogVisible.set(false)" type='button'>Cancel</button>
-      <button (click)="onAdd()" [disabled]="!addName" type='button'>Add</button>
+      <button class="secondary" (click)="addDialogVisible.set(false)" type='button'>{{ 'cancel' | localize }}</button>
+      <button (click)="onAdd()" [disabled]="!addName" type='button'>{{ 'add' | localize }}</button>
     </div>
   </form>
 </app-dialog>
 
 <app-dialog [visible]="editDialogVisible" (onEnter)="onEditComplete()">
   <form>
-    <app-input label="Name" type="text" [(value)]="editName" />
+    <app-input [label]="'name' | localize" type="text" [(value)]="editName" />
     <div class="dialog-buttons">
-      <button (click)="editDialogVisible.set(false)" type='button'>Cancel</button>
-      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>Save</button>
+      <button class="secondary" (click)="editDialogVisible.set(false)" type='button'>{{ 'cancel' | localize }}</button>
+      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>{{ 'save' | localize }}</button>
     </div>
   </form>
 </app-dialog>

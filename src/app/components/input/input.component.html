@@ -1,4 +1,5 @@
 <div class="form-control" [class.has-value]="hasValue()">
   <label>{{ label }}</label>
   <input [type]="type" [value]="value" (keyup)="onChange($event)" />
+  <fa-icon *ngIf="!!icon" [icon]="icon" />
 </div>

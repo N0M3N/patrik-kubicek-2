@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { faCheck, faChevronLeft, faClockRotateLeft, faLightbulb, faPencil, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faChevronLeft, faClockRotateLeft, faLightbulb, faPencil, faPlus, faSearch, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GifteesService } from '../../services/giftees.service';
@@ -9,13 +9,15 @@ import { DialogComponent } from '../../../../components/dialog/dialog.component'
 import { InputComponent } from '../../../../components/input/input.component';
 import { Gift, Giftee } from '../../services/app.db';
 import { Subscription } from 'rxjs';
+import { ExpanderComponent } from '../../../../components/expander/expander.component';
+import { LocalizePipe } from "../../../../pipes/localize.pipe";
 
 @Component({
-  selector: 'app-gifts',
-  standalone: true,
-  imports: [CommonModule, FaIconComponent, DialogComponent, InputComponent],
-  templateUrl: './gifts.component.html',
-  styleUrl: './gifts.component.scss'
+    selector: 'app-gifts',
+    standalone: true,
+    templateUrl: './gifts.component.html',
+    styleUrl: './gifts.component.scss',
+    imports: [CommonModule, FaIconComponent, DialogComponent, InputComponent, ExpanderComponent, LocalizePipe]
 })
 export class GiftsComponent {
   private readonly router = inject(Router);
@@ -27,13 +29,16 @@ export class GiftsComponent {
 
   giftee = signal<Giftee | null>(null);
   gifts = signal<Gift[]>([]);
-  ideas = computed(() => this.gifts().filter(x => x.state === 'idea'));
-  ready = computed(() => this.gifts().filter(x => x.state === 'readyToGive'));
-  history = computed(() => this.gifts().filter(x => x.state === 'history'));
+  filteredGifts = computed(() => this.gifts().filter(x => x.name.includes(this.searchPattern())))
+  ideas = computed(() => this.filteredGifts().filter(x => x.state === 'idea'));
+  ready = computed(() => this.filteredGifts().filter(x => x.state === 'readyToGive'));
+  history = computed(() => this.filteredGifts().filter(x => x.state === 'history'));
   addDialogVisible = signal(false);
   editDialogVisible = signal(false);
+  searchPattern = signal('');
 
   faChevronLeft = faChevronLeft;
+  faSearch = faSearch;
   faPlus = faPlus;
   faTrash = faTrash;
   faPencil = faPencil;
@@ -76,6 +81,7 @@ export class GiftsComponent {
     this.addDialogVisible.set(false);
     await this.giftsService.create(this.giftee()!.id, this.addName);
     await this.update();
+    this.addName = '';
   }
 
 

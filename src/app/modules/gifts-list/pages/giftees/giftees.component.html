@@ -1,94 +1,87 @@
 <div class="header">
-  <button class="icon-button danger" (click)="onLogOut()" title="Log out">
+  <button class="icon-button danger" (click)="onLogOut()" [title]="'logOut' | localize">
     <fa-icon [icon]="faLock" />
   </button>
-  <h1>Giftees</h1>
+  <h1>{{ 'giftees' | localize }}</h1>
   @if(id() !== null){
-  <button class="icon-button" (click)="addDialogVisible.set(true)" title="Add">
+  <button class="icon-button" (click)="addDialogVisible.set(true)" [title]="'add' | localize">
     <fa-icon [icon]="faPlus" />
   </button>
   }
 </div>
+<app-input [label]="'search' | localize" [value]="searchPattern()" (valueChange)="searchPattern.set($event);"
+  [icon]="faSearch"></app-input>
 
-<div class="group-title">
-  <fa-icon [icon]="faLightbulb" />
-  <span>Incomplete</span>
-</div>
-@for(giftee of incompleteGiftees(); track giftee.id){
-<div class="giftee-card">
-  <div class="giftee-head" (click)="openGifts(giftee)">
-    <span>{{ giftee.name }}</span>
-    <fa-icon [icon]="faChevronRight" />
+<app-expander>
+  <div title class="group-title">
+    <fa-icon [icon]="faLightbulb" />
+    <span>{{ 'incomplete' | localize }}</span>
   </div>
-  <div class="giftee-actions">
-    <div class="giftee-actions-group">
-      <button class="icon-button small danger" (click)="onDelete(giftee)" title="Delete">
-        <fa-icon [icon]="faTrash" />
-      </button>
-      <button class="icon-button small" (click)="onEdit(giftee)" title="Edit">
-        <fa-icon [icon]="faPencil" />
-      </button>
-    </div>
-    <div>
-      <button class="icon-button small" (click)="onCheck(giftee, true)" title="Mark as complete">
-        <fa-icon [icon]="faCheck" />
-      </button>
-    </div>
-  </div>
-</div>
-}
-@empty {
-<p class="empty-note">No incomplete giftees found.</p>
-}
+  @for(giftee of incompleteGiftees(); track giftee.id){
+  <ng-container *ngTemplateOutlet="gifteeTemplate; context: {$implicit: giftee}" />
+  }
+  @empty {
+  <p class="empty-note">{{ 'incompleteNotFound' | localize }}</p>
+  }
+</app-expander>
 
-<div class="group-title">
-  <fa-icon [icon]="faCheck" />
-  <span>Complete</span>
-</div>
-@for(giftee of completeGiftees(); track giftee.id){
-<div class="giftee-card">
-  <div class="giftee-head" (click)="openGifts(giftee)">
-    <span>{{ giftee.name }}</span>
-    <fa-icon [icon]="faChevronRight" />
+
+<app-expander [open]="false">
+  <div title class="group-title">
+    <fa-icon [icon]="faCheck" />
+    <span>{{ 'complete' | localize }}</span>
   </div>
-  <div class="giftee-actions">
-    <div class="giftee-actions-group">
-      <button class="icon-button small danger" (click)="onDelete(giftee)" title="Delete">
-        <fa-icon [icon]="faTrash" />
-      </button>
-      <button class="icon-button small" (click)="onEdit(giftee)" title="Edit">
-        <fa-icon [icon]="faPencil" />
-      </button>
+  @for(giftee of completeGiftees(); track giftee.id){
+  <ng-container *ngTemplateOutlet="gifteeTemplate; context: {$implicit: giftee}" />
+  }
+  @empty {
+  <p class="empty-note">{{ 'completeNotFound' | localize }}</p>
+  }
+</app-expander>
+
+<ng-template #gifteeTemplate let-giftee>
+  <div class="giftee-card">
+    <div class="giftee-head" (click)="openGifts(giftee)">
+      <span>{{ giftee.name }}</span>
+      <fa-icon [icon]="faChevronRight" />
     </div>
-    <div>
-      <button class="icon-button small" (click)="onCheck(giftee, false)" title="Mark as incomplete">
-        <fa-icon [icon]="faCheck" />
-      </button>
+    <div class="giftee-actions">
+      <div class="giftee-actions-group">
+        <button class="icon-button small danger" (click)="onDelete(giftee)" [title]="'delete' | localize">
+          <fa-icon [icon]="faTrash" />
+        </button>
+        <button class="icon-button small secondary" (click)="onEdit(giftee)" [title]="'edit' | localize">
+          <fa-icon [icon]="faPencil" />
+        </button>
+      </div>
+      <div class="giftee-actions-group">
+        <span [title]="'numberOfReadyGifts' | localize">{{ 'gifts' | localize }}: {{ giftee.giftsCount }}</span>
+        <button class="icon-button small" [class.secondary]="giftee.isComplete"
+          (click)="onCheck(giftee, !giftee.isComplete)"
+          [title]="(giftee.isComplete ? 'markIncomplete' : 'markComplete') | localize">
+          <fa-icon [icon]="giftee.isComplete ? faLightbulb : faCheck" />
+        </button>
+      </div>
     </div>
   </div>
-</div>
-}
-@empty {
-<p class="empty-note">No complete giftees found.</p>
-}
+</ng-template>
 
 <app-dialog [visible]="addDialogVisible" (onEnter)="onAdd()">
   <form>
-    <app-input label="Name" type="text" [(value)]="addName" />
+    <app-input [label]="'name' | localize" type="text" [(value)]="addName" />
     <div class="dialog-buttons">
-      <button (click)="addDialogVisible.set(false)" type='button'>Cancel</button>
-      <button (click)="onAdd()" [disabled]="!addName" type='button'>Add</button>
+      <button class="secondary" (click)="addDialogVisible.set(false)" type='button'>{{ 'cancel' | localize }}</button>
+      <button (click)="onAdd()" [disabled]="!addName" type='button'>{{ 'add' | localize }}</button>
     </div>
   </form>
 </app-dialog>
 
-
 <app-dialog [visible]="editDialogVisible" (onEnter)="onEditComplete()">
   <form>
-    <app-input label="Name" type="text" [(value)]="editName" />
+    <app-input [label]="'name' | localize" type="text" [(value)]="editName" />
     <div class="dialog-buttons">
-      <button (click)="editDialogVisible.set(false)" type='button'>Cancel</button>
-      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>Save</button>
+      <button class="secondary" (click)="editDialogVisible.set(false)" type='button'>{{ 'cancel' | localize }}</button>
+      <button (click)="onEditComplete()" [disabled]="!editName" type='button'>{{ 'save' | localize }}</button>
     </div>
   </form>
 </app-dialog>

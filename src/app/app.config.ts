@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { LocalizationService } from './services/localization.service';
@@ -8,7 +8,7 @@ import { LocalizePipe } from './pipes/localize.pipe';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
     provideHttpClient(withFetch()),
     LocalizationService,
     LocalizePipe],
