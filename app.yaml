@@ -1,14 +1,41 @@
 runtime: python312
 handlers: 
   # Serve all static files with url ending with a file extension
-  - url: /
+  - url: /(.+\.js)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+
+  - url: /(.+\.ico)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+
+  - url: /(.+\.css)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+
+  - url: /(.+\.ttf)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+
+  - url: /(.+\.json)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+    
+  - url: /(.+\.png)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+  - url: /(.*)
+  
+  - url: /(.+\.svg)
+    static_files: dist/patrik-kubicek/browser/\1
+    secure: always
+
+  - url: /(.+)
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
     secure: always
+    
   - url: /
-    static_dir: dist/patrik-kubicek/browser
-    secure: always
-  - url: /(.*)
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
     secure: always
