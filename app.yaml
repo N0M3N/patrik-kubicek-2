@@ -3,38 +3,44 @@ handlers:
   # Serve all static files with url ending with a file extension
   - url: /(.+\.js)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.js)
     secure: always
 
   - url: /(.+\.ico)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.ico)
     secure: always
 
   - url: /(.+\.css)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.css)
     secure: always
 
   - url: /(.+\.ttf)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.ttf)
     secure: always
 
   - url: /(.+\.json)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.json)
     secure: always
     
   - url: /(.+\.png)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.png)
     secure: always
-  - url: /(.*)
   
   - url: /(.+\.svg)
     static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.svg)
     secure: always
 
   - url: /(.+)
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
     secure: always
-    
+
   - url: /
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
