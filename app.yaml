@@ -8,8 +8,6 @@ handlers:
   - url: /
     static_dir: dist/patrik-kubicek/browser
     secure: always
-  - url: /.*
+  - url: /(.*)
     static_files: dist/patrik-kubicek/browser/index.html
-    upload: dist/patrik-kubicek/browser/index.html
-    script: auto
     secure: always
