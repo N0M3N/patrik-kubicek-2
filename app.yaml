@@ -36,6 +36,12 @@ handlers:
     upload: dist/patrik-kubicek/browser/(.+\.svg)
     secure: always
 
+  - url: /(.+\.webmanifest)
+    static_files: dist/patrik-kubicek/browser/\1
+    upload: dist/patrik-kubicek/browser/(.+\.webmanifest)
+    secure: always
+
+
   - url: /(.+)
     static_files: dist/patrik-kubicek/browser/index.html
     upload: dist/patrik-kubicek/browser/index.html
