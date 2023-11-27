@@ -10,4 +10,5 @@ handlers:
     secure: always
   - url: /(.*)
     static_files: dist/patrik-kubicek/browser/index.html
+    upload: dist/patrik-kubicek/browser/index.html
     secure: always
