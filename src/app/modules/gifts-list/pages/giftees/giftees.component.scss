@@ -7,13 +7,13 @@ app-input {
 #back-button {
   position: fixed;
   top: 10px;
-  left: 10px;
+  left: var(--left-action-button-offset);
 }
 
 #add-button {
   position: fixed;
   top: 10px;
-  right: 124px;
+  right: var(--right-action-button-offset);
 }
 
 h1 {

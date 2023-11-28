@@ -7,6 +7,9 @@
   --success: rgb(3, 252, 107);
   --warning: rgb(214, 180, 58);
   --danger: rgb(196, 62, 47);
+
+  --left-action-button-offset: 2rem;
+  --right-action-button-offset: calc(6rem + 32px + 20px);
 }
 
 @font-face {

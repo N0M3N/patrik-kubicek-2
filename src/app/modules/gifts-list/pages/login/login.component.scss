@@ -14,5 +14,5 @@
 #back-button {
   position: fixed;
   top: 10px;
-  left: 10px;
+  left: var(--left-action-button-offset);
 }
