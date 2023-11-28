@@ -23,7 +23,10 @@ export const routes: Routes = [
   },
   {
     path: 'apps/gifts-list',
-    loadChildren: () => import('./modules/gifts-list/gifts-list.routes').then(m => m.routes)
+    loadChildren: () => import('./modules/gifts-list/gifts-list.routes').then(m => m.routes),
+    data: {
+      appMode: true
+    }
   },
   {
     path: '*',

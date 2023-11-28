@@ -1,14 +1,12 @@
-<div class="header">
-  <button class="icon-button danger" (click)="onLogOut()" [title]="'logOut' | localize">
-    <fa-icon [icon]="faLock" />
-  </button>
-  <h1>{{ 'giftees' | localize }}</h1>
-  @if(id() !== null){
-  <button class="icon-button" (click)="addDialogVisible.set(true)" [title]="'add' | localize">
-    <fa-icon [icon]="faPlus" />
-  </button>
-  }
-</div>
+<button id="back-button" class="icon-button danger" (click)="onLogOut()" [title]="'logOut' | localize">
+  <fa-icon [icon]="faLock" />
+</button>
+@if(id() !== null){
+<button id="add-button" class="icon-button" (click)="addDialogVisible.set(true)" [title]="'add' | localize">
+  <fa-icon [icon]="faPlus" />
+</button>
+}
+<h1>{{ 'giftees' | localize }}</h1>
 <app-input [label]="'search' | localize" [value]="searchPattern()" (valueChange)="searchPattern.set($event);"
   [icon]="faSearch"></app-input>
 

@@ -32,6 +32,10 @@ body.light {
   --background-light: rgba(var(--secondary), .1);
   --color: rgb(var(--secondary));
   --accent: rgb(var(--tertiary));
+
+  img.text-color {
+    filter: brightness(0);
+  }
 }
 
 body.dark {
@@ -39,6 +43,10 @@ body.dark {
   --background-light: rgba(var(--primary), .1);
   --color: rgb(var(--primary));
   --accent: rgb(var(--tertiary));
+
+  img.text-color {
+    filter: brightness(0) invert(1);
+  }
 }
 
 * {
@@ -131,4 +139,9 @@ input[type="submit"] {
   text-align: center;
   font-size: 80%;
   font-style: italic;
+}
+
+ul li {
+  line-height: 170%;
+  padding-block: .3rem;
 }

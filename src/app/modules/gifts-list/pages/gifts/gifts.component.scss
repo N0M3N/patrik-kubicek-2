@@ -1,13 +1,23 @@
-:host > *:not(:first-child) {
+app-expander,
+app-input {
   margin-bottom: 2rem;
   display: block;
 }
 
-.header {
-  display: grid;
-  grid-template-columns: max-content auto max-content;
-  gap: 1rem;
-  align-items: center;
+#back-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#add-button {
+  position: fixed;
+  top: 10px;
+  right: 124px;
+}
+
+h1 {
+  margin: 0;
 }
 
 .dialog-buttons {

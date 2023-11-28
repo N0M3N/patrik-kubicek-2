@@ -1,6 +1,62 @@
 <h1>{{ 'about' | localize }}</h1>
 <p>{{ 'about_main' | localize }}</p>
 
+<h2>{{ 'about_skills' | localize }}</h2>
+<app-cards>
+  <app-card [opened]="true">
+    <span title class="about-card-title">
+      <span>Angular</span>
+      <img class="text-color" src="../../../assets/icons/angular.png" alt="angular.png" />
+    </span>
+    <span content>
+      <p>{{ 'angular_main' | localize }}</p>
+      <strong>{{ 'about_projects' | localize }}</strong>
+      <p>{{ 'angular_projects' | localize }}</p>
+      <strong>{{ 'about_technologies' | localize }}</strong>
+      <ul>
+        <li><strong>RxJs</strong> - {{ 'angular_rxjs' | localize }}</li>
+        <li><strong>NgRx</strong> - {{ 'angular_ngrx' | localize }}</li>
+        <li><strong>Nx</strong> - {{ 'angular_nx' | localize }}</li>
+        <li><strong>Bootstrap</strong> - {{ 'angular_bootstrap' | localize }}</li>
+        <li><strong>MaterialUI</strong> - {{ 'angular_material' | localize }}</li>
+        <li><strong>leaflet.js</strong> - {{ 'angular_leaflet' | localize }}</li>
+        <li><strong>highcharts.js</strong> - {{ 'angular_highcharts' | localize }}</li>
+        <li><strong>d3.js</strong> - {{ 'angular_d3' | localize }}</li>
+        <li><strong>PWA</strong> - {{ 'angular_pwa' | localize }}</li>
+      </ul>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
+      <span>.NET</span>
+      <img class="text-color" src="../../../assets/icons/net.png" alt="net.png" />
+    </span>
+    <span content>
+      <p>{{ 'net_main' | localize }}</p>
+      <strong>{{ 'about_projects' | localize }}</strong>
+      <p>{{ 'net_projects' | localize }}</p>
+      <strong>{{ 'about_technologies' | localize }}</strong>
+      <ul>
+        <li><strong>ASP.NET + Entity Framework</strong> - {{ 'net_asp' | localize }}</li>
+        <li><strong>.NET WPF</strong> - {{ 'net_wpf' | localize }}</li>
+        <li><strong>.NET Blazor</strong> - {{ 'net_blazor' | localize }}</li>
+        <li><strong>.NET MAUI</strong> - {{ 'net_maui' | localize }}</li>
+      </ul>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
+      <span>Ionic Framework</span>
+      <img class="text-color" src="../../../assets/icons/ionic.png" alt="ionic.png" />
+    </span>
+    <span content>
+      <p>{{ 'ionic_main' | localize }}</p>
+      <strong>{{ 'about_projects' | localize }}</strong>
+      <p>{{ 'ionic_projects' | localize }}</p>
+    </span>
+  </app-card>
+</app-cards>
+
 <h2>{{ 'about_experince' | localize }}</h2>
 <app-cards>
   <app-card [opened]="true">
@@ -10,7 +66,7 @@
     </span>
     <span content>
       <p>{{ 'vyvojari_main' | localize }}</p>
-      <span>{{ 'about_technologies' | localize }}</span>
+      <strong>{{ 'about_technologies' | localize }}</strong>
       <ul>
         <li>.NET C#</li>
         <li>.NET Blazor</li>
@@ -26,7 +82,7 @@
       <span class="time-span">8/2017 - 4/2022</span>
     </span> <span content>
       <p>{{ 'abb_main' | localize }}</p>
-      <span>{{ 'about_technologies' | localize }}</span>
+      <strong>{{ 'about_technologies' | localize }}</strong>
       <ul>
         <li>Angular</li>
         <li>Ionic Framework</li>
@@ -79,27 +135,35 @@
       <span>{{ 'czech' | localize }}</span>
       <span class="time-span">C2</span>
     </span>
-    <span content><p>{{ 'czech_main' | localize }}</p></span>
+    <span content>
+      <p>{{ 'czech_main' | localize }}</p>
+    </span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
       <span>{{ 'english' | localize }}</span>
       <span class="time-span">C1</span>
     </span>
-    <span content><p>{{ 'english_main' | localize }}</p></span>
+    <span content>
+      <p>{{ 'english_main' | localize }}</p>
+    </span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
       <span>{{ 'german' | localize }}</span>
       <span class="time-span">A1/A2</span>
     </span>
-    <span content><p>{{ 'german_main' | localize }}</p></span>
+    <span content>
+      <p>{{ 'german_main' | localize }}</p>
+    </span>
   </app-card>
   <app-card>
     <span title class="about-card-title">
       <span>{{ 'spanish' | localize }}</span>
       <span class="time-span">A1/A2</span>
     </span>
-    <span content><p>{{ 'spanish_main' | localize }}</p></span>
+    <span content>
+      <p>{{ 'spanish_main' | localize }}</p>
+    </span>
   </app-card>
 </app-cards>

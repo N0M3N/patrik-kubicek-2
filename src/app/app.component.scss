@@ -3,6 +3,21 @@
   min-height: 100vh;
   grid-template-rows: max-content auto max-content max-content;
 
+  &.app-mode {
+    #header {
+      #header-title {
+        visibility: hidden;
+      }
+      nav {
+        visibility: hidden;
+      }
+    }
+
+    #footer {
+      display: none;
+    }
+  }
+
   #header,
   #footer,
   #devnote {
@@ -86,6 +101,11 @@
       max-width: 800px;
       padding: 3vw;
       min-width: 50vw;
+
+      @media screen and (max-width: 600px) {
+        min-width: 100%;
+      }
+  
     }
   }
 
