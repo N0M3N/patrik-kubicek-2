@@ -6,7 +6,9 @@
   &.app-mode {
     #header {
       #header-title {
-        visibility: hidden;
+        visibility: collapse;
+        text-wrap: nowrap;
+        overflow: hidden;
       }
       nav {
         visibility: hidden;
