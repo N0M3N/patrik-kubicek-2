@@ -61,8 +61,26 @@
 <app-cards>
   <app-card [opened]="true">
     <span title class="about-card-title">
+      <span>Echopix s.r.o.</span>
+      <span class="time-span">1/2024 - *</span>
+    </span>
+    <span content>
+      <p>{{ 'echopix_main' | localize }}</p>
+      <strong>{{ 'about_technologies' | localize }}</strong>
+      <ul>
+        <li>Angular</li>
+        <li>NX Monorepo</li>
+        <li>GraphQL</li>
+        <li>Mongo DB</li>
+        <li>Docker</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
       <span>Vývojáři UO</span>
-      <span class="time-span">5/2022 - *</span>
+      <span class="time-span">5/2022 - 11/2023</span>
     </span>
     <span content>
       <p>{{ 'vyvojari_main' | localize }}</p>
