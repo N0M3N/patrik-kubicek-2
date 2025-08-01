@@ -16,8 +16,9 @@
   "about_languages": "Jazyky",
   "about_skills": "Dovednosti",
   "about_projects": "Projekty:",
+  "about_public_projects": "Veřejně dostupné projekty",
   "angular_main": "je mou hlavní technologií pro vývoj na front-endu. Pracoval jsem na spoustě projektů od malých až po velké.",
-  "angular_projects": "Mnoho aplikací pro vizualizaci dat a KPI, osobní portfolio, velká aplikace pro námořní přepravu (Oversea od ABB a Valenius Marine), aplikace pro vizualizaci kontejnerů v námořní a vlakové přepravě.",
+  "angular_projects": "Mnoho aplikací pro vizualizaci dat a KPI, osobní portfolio, velká aplikace pro námořní přepravu (Oversea od ABB a Valenius Marine), aplikace pro vizualizaci kontejnerů v námořní a vlakové přepravě. Obecní weby s CMS, vzdělávací aplikace s kvízy a kříovkami pro seniorní řidiče. Vlastní CMS založené na štítcích.",
   "angular_rxjs": "reaktivní programování",
   "angular_ngrx": "řízení stavu aplikace (Redux)",
   "angular_nx": "správa monorepozitáře pro javascriptové projekty",
@@ -33,9 +34,15 @@
   "net_wpf": "vývoj desktopových aplikací pro Windows",
   "net_blazor": "vývoj webu - zkušenost s jedním velkým projektem",
   "net_maui": "aplikace pro Windows/iOS/Android - zkušenost s jedním malým projektem",
+  "nest_main": "NestJS jsem se rozhodl použít pro svůj soukromý projekt",
+  "nest_projects": "API s GraphQL pro mé CMS založené na štítcích",
+  "flutter_main": "pro vývoj nativních mobilních aplikací. Mám zkušenosti pouze s vývojem pro Android.",
+  "flutter_projects":"Údržba a drobný vývoj projektu pro úklidy veřejné dopravy a předělání a vývoj aplikace pro údržbu chladících zařízení",
   "ionic_main": "je framework pro vývoj mobilních a webových aplikací s přístupem k nativním API pomocí doplňků Capacitoru z kódu, který je podobný Angularu",
   "ionic_projects": "Mobilní aplikace pro instrukce a reporty z údržby turbodmychadel (MXP by ABB/Accelleron industries)",
+  "bold_main": "Vývoj mobilní aplikace pro servis chladících zařízení.",
   "echopix_main": "Vývoj monorepozitáře s projekty pro tvorbu obecních a komerčních webových stránek, několik backoffice aplikací, systémy pro správu obsahu a další.",
+  "echopix_wo": "Obecní weby s CMS pro Palkovice, Dívčí Hrad a další",
   "vyvojari_main": "Backoffice aplikace pro společnosti zajišťující věřejnou přepravu v Česku a na Slovensku.",
   "abb_main": "Aplikace pro námořní přepravu.",
   "tieto_main": "Práce na částečný úvazek v podpoře uživatelů Windows.",
@@ -93,5 +100,4 @@
   "markAsIdea": "Označit jako nápad na dárek",
   "markAsReadyToGive": "Označit jako připaravený dárek",
   "markAsHistory": "Označit jako historický dárek"
-
 }

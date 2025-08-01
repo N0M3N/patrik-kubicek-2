@@ -18,9 +18,8 @@ export class CardComponent {
   public order: number = 0;
   _opened: Signal<boolean> = signal(false);
   onToggle = new EventEmitter();
-  
+
   _onToggle() {
-    console.log('toggled')
     this.onToggle.emit();
   }
 }

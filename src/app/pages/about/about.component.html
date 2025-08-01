@@ -46,6 +46,28 @@
   </app-card>
   <app-card>
     <span title class="about-card-title">
+      <span>NestJS</span>
+      <img class="text-color" src="../../../assets/icons/nestjs.png" alt="nestjs.png" />
+    </span>
+    <span content>
+      <p>{{ 'nest_main' | localize }}</p>
+      <strong>{{ 'about_projects' | localize }}</strong>
+      <p>{{ 'nest_projects' | localize }}</p>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
+      <span>Flutter</span>
+      <img class="text-color" src="../../../assets/icons/flutter.png" alt="flutter.png" />
+    </span>
+    <span content>
+      <p>{{ 'flutter_main' | localize }}</p>
+      <strong>{{ 'about_projects' | localize }}</strong>
+      <p>{{ 'flutter_projects' | localize }}</p>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
       <span>Ionic Framework</span>
       <img class="text-color" src="../../../assets/icons/ionic.png" alt="ionic.png" />
     </span>
@@ -61,6 +83,19 @@
 <app-cards>
   <app-card [opened]="true">
     <span title class="about-card-title">
+      <span>BTG Systems s.r.o.</span>
+      <span class="time-span">3/2025 - *</span>
+    </span>
+    <span content>
+      <p>{{ 'bold_main' | localize}}</p>
+      <strong>{{ 'about_technologies' | localize }}</strong>
+      <ul>
+        <li>Flutter</li>
+      </ul>
+    </span>
+  </app-card>
+  <app-card>
+    <span title class="about-card-title">
       <span>Echopix s.r.o.</span>
       <span class="time-span">1/2024 - *</span>
     </span>
@@ -74,6 +109,12 @@
         <li>Mongo DB</li>
         <li>Docker</li>
         <li>Tailwind CSS</li>
+        <li>Flutter</li>
+      </ul>
+      <strong>{{ 'about_public_projects' | localize }}</strong>
+      <ul>
+        <li><a href="https://seniorbeznehod.echopix.cz" target="_blank">Senior bez nehod</a></li>
+        <li>{{ 'echopix_wo' | localize }}</li>
       </ul>
     </span>
   </app-card>
