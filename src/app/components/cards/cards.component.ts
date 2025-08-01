@@ -5,7 +5,7 @@ import { CardComponent } from '../card/card.component';
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss'
 })

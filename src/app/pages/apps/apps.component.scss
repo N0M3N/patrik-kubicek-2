@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+
+  img {
+    max-height: 14px;
+    transition: max-height .5s ease;
+  }
+
+  &.opened img {
+    max-height: 18px;
+  }
 }
 
 .app-content {

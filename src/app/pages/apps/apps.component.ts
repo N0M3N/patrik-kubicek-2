@@ -16,4 +16,5 @@ import { RouterModule } from '@angular/router';
 })
 export class AppsComponent {
   faGift = faGift;
+  easyCmsOpened = false;
 }

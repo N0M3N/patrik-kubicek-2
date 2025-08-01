@@ -20,7 +20,14 @@
       <a routerLink="/apps/gifts-list">{{ 'myApps_open' | localize }}</a>
     </div>
   </app-card>
-  <app-card>
 
+  <app-card [opened]="easyCmsOpened" (openedChanged)="easyCmsOpened = $event">
+    <span title class="app-title" [class.opened]="easyCmsOpened">
+      <img class="text-color" src="../../../assets/icons/easy-cms.png">
+      EASY-CMS
+    </span>
+    <div content class="app-content">
+      <p>{{ 'easy-cms_description' | localize }}</p>
+    </div>
   </app-card>
 </app-cards>
